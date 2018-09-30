@@ -27,6 +27,8 @@ void dma_stop()
 
 void dma_start()
 {
+	HAL_TIM_Base_Start(&htim2);
+	HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)LEDbuffer,
 	LED_BUFFER_SIZE);
 }
@@ -46,7 +48,7 @@ void setLEDcolor(uint32_t LEDnumber, uint8_t RED, uint8_t GREEN, uint8_t BLUE)
 		tempBuffer[16 + i] = ((BLUE << i) & 0x80) ? WS2812_1 : WS2812_0;
 
 	for (i = 0; i < 24; i++)
-		LEDbuffer[RESET_SLOTS_BEGIN + LEDindex * 24 + i] = tempBuffer[i];
+		LEDbuffer[RESET_SLOTS_BEGIN + (LEDindex * 24) + i] = tempBuffer[i];
 }
 
 void setStripColor(uint8_t RED, uint8_t GREEN, uint8_t BLUE)
