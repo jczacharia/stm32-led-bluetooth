@@ -1,4 +1,4 @@
-Src/ws2812.o: ../Src/ws2812.c \
+Src/ws2812.o: ../Src/ws2812.cpp \
  /home/jeremy/stm-workspace/led/led/Inc/ws2812.h \
  /home/jeremy/stm-workspace/led/led/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  /home/jeremy/stm-workspace/led/led/Inc/stm32f1xx_hal_conf.h \

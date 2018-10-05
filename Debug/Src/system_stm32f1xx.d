@@ -1,4 +1,4 @@
-Src/system_stm32f1xx.o: ../Src/system_stm32f1xx.c \
+Src/system_stm32f1xx.o: ../Src/system_stm32f1xx.cpp \
  /home/jeremy/stm-workspace/led/led/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h \
  /home/jeremy/stm-workspace/led/led/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h \
  /home/jeremy/stm-workspace/led/led/Drivers/CMSIS/Include/core_cm3.h \

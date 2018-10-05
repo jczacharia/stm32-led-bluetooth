@@ -8,7 +8,7 @@
 #include <ws2812.h>
 #include "stm32f1xx_hal.h"
 
-uint8_t LEDbuffer[LED_BUFFER_SIZE];
+volatile uint8_t LEDbuffer[LED_BUFFER_SIZE];
 extern TIM_HandleTypeDef htim2;
 
 
@@ -27,8 +27,6 @@ void dma_stop()
 
 void dma_start()
 {
-	HAL_TIM_Base_Start(&htim2);
-	HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)LEDbuffer,
 	LED_BUFFER_SIZE);
 }
@@ -49,6 +47,23 @@ void setLEDcolor(uint32_t LEDnumber, uint8_t RED, uint8_t GREEN, uint8_t BLUE)
 
 	for (i = 0; i < 24; i++)
 		LEDbuffer[RESET_SLOTS_BEGIN + (LEDindex * 24) + i] = tempBuffer[i];
+}
+
+void makeLookLikePWM()
+{
+	uint32_t i;
+
+	for (i = 0; i < LED_BUFFER_SIZE; i++)
+	{
+		if (i >= LED_BUFFER_SIZE / 2)
+		{
+			LEDbuffer[i] = 90;
+		}
+		else
+		{
+			LEDbuffer[i] = 0;
+		}
+	}
 }
 
 void setStripColor(uint8_t RED, uint8_t GREEN, uint8_t BLUE)

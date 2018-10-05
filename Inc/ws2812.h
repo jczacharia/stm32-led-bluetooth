@@ -12,7 +12,7 @@
 
 #define LED_NUM             	(5)
 
-#define TIMER_PERIOD			(90)
+#define TIMER_PERIOD			(45)
 
 #define WS2812_0            	(TIMER_PERIOD / 3)
 #define WS2812_1            	((TIMER_PERIOD * 2) / 3)
@@ -28,6 +28,7 @@ void ws2812_init(void);
 void ws2812_update(void);
 void dma_stop(void);
 void dma_start(void);
+void makeLookLikePWM(void);
 void setLEDcolor(uint32_t LEDnumber, uint8_t RED, uint8_t GREEN, uint8_t BLUE);
 void setStripColor(uint8_t RED, uint8_t GREEN, uint8_t BLUE);
 

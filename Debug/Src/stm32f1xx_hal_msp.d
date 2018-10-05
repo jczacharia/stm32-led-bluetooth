@@ -1,4 +1,4 @@
-Src/stm32f1xx_hal_msp.o: ../Src/stm32f1xx_hal_msp.c \
+Src/stm32f1xx_hal_msp.o: ../Src/stm32f1xx_hal_msp.cpp \
  /home/jeremy/stm-workspace/led/led/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  /home/jeremy/stm-workspace/led/led/Inc/stm32f1xx_hal_conf.h \
  /home/jeremy/stm-workspace/led/led/Inc/main.h \

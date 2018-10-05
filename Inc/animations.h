@@ -10,6 +10,6 @@
 
 #include "ws2812.h"
 
-void Rainbow(uint16_t delay);
+void Rainbow(uint32_t delay);
 
 #endif /* ANIMATIONS_H_ */

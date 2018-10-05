@@ -1,6 +1,7 @@
-Src/main.o: ../Src/main.c /home/jeremy/stm-workspace/led/led/Inc/main.h \
+Src/main.o: ../Src/main.cpp /home/jeremy/stm-workspace/led/led/Inc/main.h \
  /home/jeremy/stm-workspace/led/led/Inc/ws2812.h \
  /home/jeremy/stm-workspace/led/led/Inc/animations.h \
+ /home/jeremy/stm-workspace/led/led/Inc/jLog.hpp \
  /home/jeremy/stm-workspace/led/led/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  /home/jeremy/stm-workspace/led/led/Inc/stm32f1xx_hal_conf.h \
  /home/jeremy/stm-workspace/led/led/Inc/main.h \
@@ -30,6 +31,8 @@ Src/main.o: ../Src/main.c /home/jeremy/stm-workspace/led/led/Inc/main.h \
 /home/jeremy/stm-workspace/led/led/Inc/ws2812.h:
 
 /home/jeremy/stm-workspace/led/led/Inc/animations.h:
+
+/home/jeremy/stm-workspace/led/led/Inc/jLog.hpp:
 
 /home/jeremy/stm-workspace/led/led/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 

@@ -206,18 +206,19 @@ uint8_t colorsFull[766][3] = { { 255, 0, 0 }, { 254, 1, 0 }, { 253, 2, 0 }, {
 				248, 0, 7 }, { 249, 0, 6 }, { 250, 0, 5 }, { 251, 0, 4 }, { 252,
 				0, 3 }, { 253, 0, 2 }, { 254, 0, 1 }, { 255, 0, 0 }, };
 
-void Rainbow(uint16_t delay) {
-	static uint32_t index = 0;
-	uint32_t led;
+void Rainbow(uint32_t delay)
+{
+	uint32_t index = 0;
+	uint32_t led, colorIndex;
 
-	for (led = 0; led < LED_NUM; led++)
-		setLEDcolor(led, colorsFull[index + led][0], colorsFull[index + led][1],
-				colorsFull[index + led][2]);
-
-	index++;
-
-	if ((index + led) >= 766)
-		index = 0;
-
-	HAL_Delay(delay);
+	while (1) {
+		for (led = 0; led < LED_NUM; led++) {
+			colorIndex = (index + led * (766 / LED_NUM)) % 766;
+			setLEDcolor(led, colorsFull[colorIndex][0],
+					colorsFull[colorIndex][1], colorsFull[colorIndex][2]);
+		}
+		index += (766 / LED_NUM);
+		index %= 766;
+		HAL_Delay(delay);
+	}
 }

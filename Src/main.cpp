@@ -38,6 +38,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "jLog.hpp"
 #include "stm32f1xx_hal.h"
 
 /* USER CODE BEGIN Includes */
@@ -63,7 +64,16 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+// all of your legacy C code here
+extern void initialise_monitor_handles(void);
+
+#ifdef __cplusplus
+}
+#endif
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -102,14 +112,19 @@ int main(void)
   MX_DMA_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  initialise_monitor_handles();
   ws2812_init();
+  printf("DPONEs\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  //makeLookLikePWM();
   while (1)
   {
-	  Rainbow(30);
+	  //Rainbow(200);
+	  setStripColor(0,255,0);
+	  //makeLookLikePWM();
 	  //LED_white_out();
   /* USER CODE END WHILE */
 
@@ -179,9 +194,9 @@ static void MX_TIM2_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
+  htim2.Init.Prescaler = 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 89;
+  htim2.Init.Period = 44;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
